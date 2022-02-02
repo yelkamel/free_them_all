@@ -14,7 +14,11 @@ dependencies:
   # Tools 
   get: ^4.6.1
 
-  cupertino_icons: ^1.0.2
+  # Service
+  multiavatar: ^0.1.5
+  flutter_svg: ^1.0.3
+  image: ^3.1.1
+
 
 dev_dependencies:
   flutter_test:
