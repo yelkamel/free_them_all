@@ -2,8 +2,7 @@ import 'package:free_them_all/presentation/dialog/win_dialog.dart';
 import 'package:get/get.dart';
 
 class BoardController extends GetxController {
-  RxList<int> numbers =
-      [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].obs;
+  RxList<int> numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8].obs;
   Rx<int> move = 0.obs;
 
   int secondsPassed = 0;
@@ -20,11 +19,16 @@ class BoardController extends GetxController {
       isActive = true;
     }
 
+    final lenght = numbers.length;
+    final rowLenght = numbers.length / 3;
+
     final isMovable =
-        index - 1 >= 0 && numbers[index - 1] == 0 && index % 4 != 0 ||
-            index + 1 < 16 && numbers[index + 1] == 0 && (index + 1) % 4 != 0 ||
-            (index - 4 >= 0 && numbers[index - 4] == 0) ||
-            (index + 4 < 16 && numbers[index + 4] == 0);
+        index - 1 >= 0 && numbers[index - 1] == 0 && index % rowLenght != 0 ||
+            index + 1 < lenght &&
+                numbers[index + 1] == 0 &&
+                (index + 1) % rowLenght != 0 ||
+            (index - rowLenght >= 0 && numbers[index - rowLenght] == 0) ||
+            (index + rowLenght < lenght && numbers[index + rowLenght] == 0);
 
     if (isMovable) {
       move.value++;

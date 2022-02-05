@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:free_them_all/presentation/splashscreen.dart';
+import 'package:free_them_all/theme/light.dart';
 import 'package:get/route_manager.dart';
-import 'presentation/home/home_screen.dart';
 
 main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -16,10 +17,11 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
+    return GetMaterialApp(
       title: "Free Them ALL",
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: const SplashScreen(),
+      theme: lightTheme,
     );
   }
 }
