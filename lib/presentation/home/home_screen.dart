@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:free_them_all/presentation/board/board.dart';
+import 'package:free_them_all/presentation/game/game_screen.dart';
 import 'package:get/get.dart';
-
-import 'widgets/header.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -17,19 +15,26 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
-
     return Scaffold(
       body: Center(
-        child: Container(
-          height: double.infinity,
-          color: Theme.of(context).backgroundColor,
-          child: Column(
-            children: <Widget>[
-              HomeHeader(size: size),
-              const Board(),
-            ],
-          ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: const <Widget>[
+            RawMaterialButton(
+              onPressed: GameScreen.show,
+              child: Text("Start"),
+            ),
+            RawMaterialButton(
+              onPressed: GameScreen.show,
+              child: Text("All my succes"),
+            ),
+            RawMaterialButton(
+              onPressed: GameScreen.show,
+              child: Text("Connect my data"),
+            )
+          ],
         ),
       ),
     );

@@ -1,47 +1,47 @@
 import 'package:flutter/material.dart';
-import 'package:free_them_all/theme/color.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+
+import '../../../controller/character_controller.dart';
 
 class BoardGridButton extends StatelessWidget {
   final void Function() onPress;
   final String text;
-  final Widget? child;
+  final double dimension;
+  final int tileNumber;
 
-  const BoardGridButton(
-      {Key? key, required this.text, required this.onPress, this.child})
-      : super(key: key);
+  const BoardGridButton({
+    Key? key,
+    required this.text,
+    required this.onPress,
+    required this.dimension,
+    required this.tileNumber,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final charactereCtrl = Get.find<CharacterController>();
+
     return RawMaterialButton(
-      child: Stack(
-        children: [
-          if (child != null) child!,
-          Text(
-            text,
-            style: const TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.bold,
-              color: kColorwhite,
-            ),
-          ),
-        ],
+      onPressed: onPress,
+      child: SizedBox.square(
+        dimension: dimension,
+        child: Stack(
+          fit: StackFit.expand,
+          children: [
+            charactereCtrl.goodSplited[tileNumber],
+            Center(
+              child: Text(
+                text,
+                style: const TextStyle(
+                  fontSize: 30,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            )
+          ],
+        ),
       ),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(8.0),
-      ),
-      onPressed: () {
-        /*
-        Get.dialog(Dialog(
-          elevation: 5.0,
-          clipBehavior: Clip.hardEdge,
-          backgroundColor: Theme.of(context).backgroundColor,
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(30),
-          ),
-          // child: Image.memory(_imageFile!),
-        ));*/
-        onPress();
-      },
     );
   }
 }

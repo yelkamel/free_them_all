@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:free_them_all/presentation/splashscreen.dart';
-import 'package:free_them_all/theme/light.dart';
+import 'package:free_them_all/utils/theme.dart';
 import 'package:get/route_manager.dart';
 
 main() async {
@@ -21,7 +21,7 @@ class App extends StatelessWidget {
       title: "Free Them ALL",
       debugShowCheckedModeBanner: false,
       home: const SplashScreen(),
-      theme: lightTheme,
+      theme: mainTheme,
     );
   }
 }
