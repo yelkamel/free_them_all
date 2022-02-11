@@ -2,7 +2,7 @@ name: free_them_all
 description: A unique sliding puzzle experience
 
 publish_to: 'none' 
-version: 1.0+2
+version: 1.0+3
 
 environment:
   sdk: ">=2.15.1 <3.0.0"

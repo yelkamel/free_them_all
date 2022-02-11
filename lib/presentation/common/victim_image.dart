@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:free_them_all/utils/random.dart';
 import 'package:get/get.dart';
 
 import '../../controller/character_controller.dart';

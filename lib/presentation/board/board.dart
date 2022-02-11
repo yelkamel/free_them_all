@@ -21,26 +21,21 @@ class Board extends StatelessWidget {
         children: [
           SizedBox.square(
             dimension: dim.toDouble(),
-            child: Stack(
-              children: [
-                // CharacterImage(character: charactereCtrl.good),
-                GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                  ),
-                  itemCount: controller.numbers.length,
-                  itemBuilder: (context, index) {
-                    return controller.numbers[index] != 0
-                        ? BoardGridButton(
-                            text: "${controller.numbers[index]}",
-                            onPress: () => controller.onPressGridItem(index),
-                            dimension: dim.toDouble() / 3,
-                            tileNumber: controller.numbers[index] - 1,
-                          )
-                        : const SizedBox.shrink();
-                  },
-                ),
-              ],
+            child: GridView.builder(
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3,
+              ),
+              itemCount: controller.numbers.length,
+              itemBuilder: (context, index) {
+                return controller.numbers[index] != 0
+                    ? BoardGridButton(
+                        text: "${controller.numbers[index]}",
+                        onPress: () => controller.onPressGridItem(index),
+                        dimension: dim.toDouble() / 3,
+                        tileNumber: controller.numbers[index] - 1,
+                      )
+                    : const SizedBox.shrink();
+              },
             ),
           ),
         ],
