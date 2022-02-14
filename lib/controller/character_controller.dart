@@ -7,7 +7,7 @@ import '../service/drawable.dart';
 
 class CharacterController extends GetxController {
   late Character victim;
-  List<Image> goodSplited = <Image>[];
+  List<Image> victimSplited = <Image>[];
 
   @override
   Future<void> onInit() async {
@@ -18,6 +18,6 @@ class CharacterController extends GetxController {
 
     final backgroundColor = Theme.of(Get.context!).colorScheme.secondary;
 
-    goodSplited = await generateGoodSplited(victim.svgRoot!, backgroundColor);
+    victimSplited = await generateGoodSplited(victim.svgRoot!, backgroundColor);
   }
 }

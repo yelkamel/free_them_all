@@ -3,6 +3,8 @@ import 'package:free_them_all/controller/ctrl.dart';
 import 'package:free_them_all/presentation/game/game_screen.dart';
 import 'package:layoutools/layoutools.dart';
 
+import 'home/home_screen.dart';
+
 class SplashScreen extends StatefulWidget {
   final void Function()? onFinish;
   const SplashScreen({Key? key, this.onFinish}) : super(key: key);
@@ -21,7 +23,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Future<void> splashAnimation() async {
     setupController();
     await Future.delayed(const Duration(seconds: 2));
-    GameScreen.show();
+    HomeScreen.replace();
   }
 
   @override
